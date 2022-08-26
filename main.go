@@ -83,7 +83,7 @@ func main()  {
 		},
 	}
 
-	result := tasks.AddTwoNumbers(l1, l2)
+	result := tasks.SumListNodes(l1, l2)
 
 	fmt.Println(result)
 }

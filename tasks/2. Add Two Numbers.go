@@ -2,10 +2,11 @@ package tasks
 
 // One type of problem solving:
 // 1. AddTwoNumbers()
-// 
+//
 // Test values are below
 
 import (
+	"fmt"
 	"math/big"
 	"strconv"
 )
@@ -14,6 +15,32 @@ type ListNode struct {
 	Val  int
 	Next *ListNode
 }
+
+func SumListNodes(l1, l2 *ListNode) *ListNode {
+	var l *ListNode
+
+	temp1 := l1
+	temp2 := l2
+
+	for {
+		l.Val = temp1.Val + temp2.Val
+		
+		temp1 = temp1.Next
+		temp2 = temp2.Next
+
+		if (temp1.Next == nil && temp2.Next == nil) {
+			break
+		}
+
+		fmt.Printf("%d", l.Val)
+	}
+
+	return l
+}
+
+// func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+
+// }
 
 func listNodeToSlice(n *ListNode) string {
 	s := ""
@@ -86,7 +113,7 @@ func sumBig(aOld, bOld string) string {
 	return sum.String()
 }
 
-func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func AddTwoNumbers2(l1 *ListNode, l2 *ListNode) *ListNode {
 	l1RevNew := listNodeToSlice(reverseListNode(l1))
 	l2RevNew := listNodeToSlice(reverseListNode(l2))
 	num := sumBig(l1RevNew, l2RevNew)
